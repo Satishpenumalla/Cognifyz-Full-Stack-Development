@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Inline Styles and Validation</title>
+</head>
+<body>
+  <h1>Registration Form</h1>
+
+  
+
+  <form action="/submit" method="post" onsubmit="return validateForm()">
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name" style="border: 1px solid #ccc; padding: 5px;">
+    <br><br>
+    <label for="email">Email: </label>
+    <input type="email" id="email" name="email" style="border: 1px solid #ccc; padding: 5px;">
+    <br><br>
+    <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px;">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+
+      let errorMessage = "";
+
+      if (name.length === 0) {
+        errorMessage += "Name is required\n";
+      }
+      if (!email.includes('@')) {
+        errorMessage += "Invalid email format";
+      }
+
+      if (errorMessage !== "") {
+        alert(errorMessage);
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+  <script src="Task2.js"></script>
+</body>
+</html>
